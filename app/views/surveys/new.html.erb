@@ -1,0 +1,76 @@
+<% provide(:title, "New Survey") %>
+<h1>New Survey</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'shared/error_messages', object: @survey %>
+
+    <%= form_for(@survey) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <div class="col-md-6">
+        <%= f.label :age %>
+        <%= f.text_field :age, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label :gender %>
+        <%= f.text_field :gender, class: "form-control" %>
+      </div>
+      <div class="col-md-12">
+        <div>
+          <h2 class="questions">What note taking apps do you currently use?</h2>
+        </div>
+        <p>
+          Select app(s):
+        </p>
+        <%= f.label :one_note, class: "checkbox inline" do %>
+          <%= f.check_box :one_note %>
+          <span>One Note</span>
+        <% end %>
+        <%= f.label :evernote, class: "checkbox inline" do %>
+          <%= f.check_box :evernote %>
+          <span>Evernote</span>
+        <% end %>
+        <%= f.label :msword, class: "checkbox inline" do %>
+          <%= f.check_box :msword %>
+          <span>Microsoft Word</span>
+        <% end %>
+        <%= f.label :pages, class: "checkbox inline" do %>
+          <%= f.check_box :pages %>
+          <span>Pages</span>
+        <% end %>
+        <%= f.label :google_drive, class: "checkbox inline" do %>
+          <%= f.check_box :google_drive %>
+          <span>Google Drive</span>
+        <% end %>
+        <%= f.label :excel, class: "checkbox inline" do %>
+          <%= f.check_box :excel %>
+          <span>Microsoft Excel</span>
+        <% end %>
+        <%= f.label :github, class: "checkbox inline" do %>
+          <%= f.check_box :github %>
+          <span>GitHub</span>
+        <% end %>
+        <%= f.label :other, class: "checkbox inline" do %>
+          <%= f.check_box :other %>
+          <span>Other</span>
+        <% end %>
+      </div>
+      <%= f.label :other_string, "Other:" %>
+      <%= f.text_field :other_string, class: "form-control" %>
+      <div>
+        <h2 class="questions">What do you like about the apps you currently use?</h2>
+      </div>
+      <%= f.label :features_like, "Favorite Features:" %>
+      <%= f.text_field :features_like, class: "form-control" %>
+      <div>
+        <h2 class="questions">What additional features would you like to see in a note taking app?</h2>
+      </div>
+      <%= f.label :features_want, "Requested Features:" %>
+      <%= f.text_field :features_want, class: "form-control" %>
+
+      <%= f.submit "Save", class: "btn btn-primary col-md-4" %>
+    <% end %>
+  </div>
+</div>
